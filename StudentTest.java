@@ -27,25 +27,35 @@ public class StudentTest {
 
 	@Test
 	public void testCompareTo() throws NameException {
+		
 		Student firstStudent = new Student("x", "Y", 2);
 		Student secondStudent = new Student("x", "Y", 3);
 		
 		int actual = secondStudent.compareTo(firstStudent);
-		int expected = 1;
 		
-		assertEquals(expected, actual);
+		// should be bigger than zero
+		boolean result = false;
+		if(actual > 0)
+			result = true;
+		assertTrue(result);
 		
+		// should be less than zero
 		Student student = new Student("x", "Y", 5);
+		result = false;
 		
-		expected = -1;
 		actual = secondStudent.compareTo(student);
+		if (actual < 0)
+			result = true;
+		assertTrue(result);
+		
+		// should be the same, therefore should be 0
+		result = false;
+		
+		Student studentSame = new Student("x", "Y", 3);
+		actual = secondStudent.compareTo(studentSame);
+		
+		int expected = 0;
 		assertEquals(expected, actual);
-
-
-		
-		
-		
-
 
 	}
 	
